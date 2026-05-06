@@ -8,106 +8,79 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Heartland Financial USA
 providerId: heartland-financial-usa
-publisherName: Heartland Financial USA
-serviceCategory: API
+publisherName: UMB Financial Corporation (acquired Heartland Financial USA)
+serviceCategory: Banking / Financial Services
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Banking
   - Financial Services
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Heartland Financial USA API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+notes: HTLF was acquired by UMB Financial Corporation; no public API pricing or invoice surface exists.
+  FinOps for any HTLF / UMB integration is governed by a bilateral partner contract. Meters and billing
+  model are placeholders; consumers should align FinOps to the actual invoice line items in their
+  executed agreement.
+description: 'FOCUS-aligned FinOps stub for Heartland Financial USA. No public billing surface exists;
+  fees are bilateral and bank-grade.'
+sources:
+  - https://www.umb.com/
+billingModel:
+  pricingCategory: Bilateral / Negotiated
+  billingFrequency: Per Agreement
+  billingCurrency: USD
+  chargeCategories:
+    - Purchase
+    - Usage
+    - Adjustment
+focusColumns:
+  ServiceName: Heartland Financial USA
+  ServiceCategory: Banking / Financial Services
+  ProviderName: Heartland Financial USA
+  PublisherName: UMB Financial Corporation
+  InvoiceIssuerName: UMB Financial Corporation
+  PricingCategory: Bilateral
+  PricingUnit: varies
+  BillingCurrency: USD
+  ChargeCategory: Usage
 principles:
   - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
+    description: Use the executed partner agreement's reporting and reconciliation schedule to track
+      consumption and fees. No public usage API is exposed.
   - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
+    description: Allocate fees against the consuming product line through the bilateral invoice; reference
+      partner_id or account_id columns where supplied.
   - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
+    description: Renegotiation and product fit are the primary cost levers; HTLF/UMB does not publish
+      tiered price breaks.
   - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
+    description: Assign a relationship owner who handles the bilateral contract, fee schedule, and
+      compliance attestations.
 domains:
   - name: Understand Usage and Cost
     capabilities:
-      - Data Ingestion
       - Allocation
       - Reporting and Analytics
-      - Anomaly Management
   - name: Quantify Business Value
     capabilities:
       - Planning and Estimating
-      - Forecasting
       - Budgeting
-      - Benchmarking
-      - Unit Economics
   - name: Optimize Usage and Cost
     capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
       - Licensing and SaaS
   - name: Manage the FinOps Practice
     capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
       - Invoicing and Chargeback
-      - Onboarding Workloads
       - Intersecting Disciplines
-billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
-  billingCurrency: USD
-  chargeCategories:
-    - Usage
-    - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
-focusColumns:
-  ServiceName: Heartland Financial USA
-  ServiceCategory: Developer Tools / API
-  ProviderName: Heartland Financial USA
-  PublisherName: Heartland Financial USA
-  InvoiceIssuerName: Heartland Financial USA
-  PricingCategory: Usage-Based
-  PricingUnit: request
-  BillingCurrency: USD
-  ChargeCategory: Usage
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: partner_fees
+    description: Negotiated partner fees per the bilateral agreement
+    unit: varies
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
+      - service
+      - partner_id
 apis:
   - name: Heartland Financial USA API
     baseURL: https://api.htlf.com
@@ -115,13 +88,10 @@ apis:
       - Banking
       - Financial Services
     serviceName: Heartland Financial USA API
-    serviceCategory: API
+    serviceCategory: Banking / Financial Services
 unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
+  - name: Cost per Transaction (per agreement)
+    metric: partner_fees / transactions
     target: TBD
 maintainers:
   - FN: Kin Lane
