@@ -4,47 +4,45 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Heartland Financial USA
 providerId: heartland-financial-usa
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-14'
+generated: '2026-09-14'
+method: searched
+reconciled: true
+source: >-
+  Searched for an HTLF pricing, plans or developer page on every host this record knows and
+  found none, because the company no longer operates: UMB Financial completed the acquisition
+  of Heartland Financial USA on 2025-01-31 and completed the brand and systems conversion of
+  every former HTLF divisional bank in October 2025. htlf.com answers HTTP 400 to every path,
+  and api.htlf.com / developer.htlf.com return NXDOMAIN.
 tags:
   - Banking
   - Financial Services
-notes: Heartland Financial USA (HTLF) was acquired by UMB Financial Corporation; the htlf.com domain now
-  redirects to umb.com. HTLF did not publish a public developer portal or API pricing page, and no successor
-  HTLF-branded developer portal exists on UMB. Any banking integrations are conducted through traditional
-  partner / treasury channels under bilateral agreements. This artifact is left as an unreconciled stub - no
-  public per-tier pricing is available to import.
+  - Acquired
+  - Defunct
+plan_count: 0
+notes: >-
+  HONEST ZERO. Heartland Financial USA published no API plans, no API pricing page and no
+  developer program at any point, and the company has since been fully absorbed into UMB
+  Financial Corporation. A previous bulk-sweep revision of this file asserted a
+  "Partner / Bilateral Agreement" tier; that tier was generated, not observed, and has been
+  removed — there is no published evidence HTLF ever ran a partner API program. UMB's own
+  banking-API surface is a different company's product and is tracked under all/umb-financial/;
+  it is deliberately not imported here.
 sources:
-  - https://www.umb.com/
-  - https://www.htlf.com/ (redirects to umb.com)
-description: Heartland Financial USA does not publish a public API pricing page. Integrations are negotiated
-  on a per-partner basis through standard banking partner programs.
-plans:
-  - id: heartland-financial-usa-partner
-    name: Partner / Bilateral Agreement
-    type: enterprise
-    description: All API and data integrations with Heartland Financial USA / UMB are negotiated under
-      bilateral partner agreements. Pricing, quotas, SLAs, and rate limits are not publicly disclosed.
-    entries:
-      - label: Partner Agreement
-        description: Pricing and quotas negotiated bilaterally; not publicly disclosed
-        name: partner_agreement
-        type: quota
-        metric: varies
-        limit: -1
-        timeFrame: month
-        geo: US
-        domains:
-          - https://www.umb.com
-        unit: 1
-        price: 'contact provider'
-        userMultiplied: false
-    elements:
-      - name: Bilateral Agreement Required
-      - name: Heartland Financial USA API
+  - url: https://www.htlf.com/
+    status: 400
+  - url: https://api.htlf.com/
+    status: 0
+    note: NXDOMAIN
+  - url: https://developer.htlf.com/
+    status: 0
+    note: NXDOMAIN
+  - url: https://investorrelations.umb.com/news/news-details/2025/UMB-Financial-Corporation-Completes-Acquisition-of-Heartland-Financial-USA-Inc/default.aspx
+    status: 200
+description: >-
+  Heartland Financial USA publishes no API plans or pricing. plan_count is 0 because the
+  company is defunct and absorbed, not because pricing was gated.
+plans: []
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

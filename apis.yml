@@ -2,6 +2,26 @@ aid: heartland-financial-usa
 url: https://raw.githubusercontent.com/api-evangelist/heartland-financial-usa/refs/heads/main/apis.yml
 name: Heartland Financial USA
 type: Index
+x-api-posture: no-product-api
+x-api-posture-basis: observed
+x-api-posture-note: >-
+  Heartland Financial USA never published a public developer portal, API reference or
+  machine-readable contract, and the company no longer operates. UMB Financial Corporation
+  completed the acquisition on 2025-01-31 and completed the systems and brand conversion of
+  every former HTLF divisional bank in October 2025. The htlf.com edge configuration has been
+  decommissioned and answers HTTP 400 to every path.
+x-status: defunct
+x-parent: umb-financial
+x-relationship: acquisition
+x-acquired-by: umb-financial
+x-acquired-date: '2025-01-31'
+x-shutdown-date: '2025-10-16'
+x-domain-status: decommissioned
+x-domain-note: >-
+  htlf.com resolves through Akamai and DNS-CNAMEs to www.umb.com, but the edge answers HTTP 400
+  to every request and presents a certificate for a248.e.akamai.net rather than for htlf.com.
+  It is not wired as a Website pointer because it serves nothing. The Website pointer names
+  www.umb.com, the acquirer's site that htlf.com's own DNS now points at.
 deliveryModel:
   model: unknown
   open_source: false
@@ -29,40 +49,81 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/heartland-
 tags:
   - Banking
   - Financial-Services
+  - Commercial-Banking
+  - Treasury-Management
+  - Acquired
+  - Defunct
+  - Bank-Holding-Company
+  - United-States
 tags_raw:
   - Banking
   - Financial Services
+  - Commercial Banking
+  - Treasury Management
+  - Acquired
+  - Defunct
+  - Bank Holding Company
+  - United States
 description: >-
-  Heartland Financial USA is a major US corporation and Fortune 1000 company. The Heartland Financial USA API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+  Heartland Financial USA, Inc. (HTLF) was a Denver, Colorado bank holding company — formerly
+  headquartered in Dubuque, Iowa — that operated a multi-charter family of community banks across
+  twelve states, including Dubuque Bank and Trust, Illinois Bank & Trust, Wisconsin Bank & Trust,
+  New Mexico Bank & Trust, Arizona Bank & Trust, Rocky Mountain Bank, Citywide Banks, Minnesota
+  Bank & Trust, Premier Valley Bank, First Bank & Trust, Bank of Blue Valley and Signature Bank of
+  Arkansas. Its business was commercial and retail banking, treasury management, and wealth
+  services delivered through branches and third-party core banking platforms rather than through a
+  developer program. HTLF never published a developer portal, API reference, SDK, or
+  machine-readable contract of any kind. UMB Financial Corporation completed its all-stock
+  acquisition of HTLF on January 31, 2025 — the largest in UMB's history — and completed the
+  systems and brand conversion of every former HTLF divisional bank in October 2025, at which
+  point the HTLF brand ceased to exist. The htlf.com edge configuration has since been
+  decommissioned. This profile is retained as a historical record; any banking API surface for
+  these institutions now lives with UMB and is tracked separately under the UMB Bank profile.
 created: '2026-04-19'
-modified: '2026-04-19'
+modified: '2026-09-14'
+position: Consuming
 specificationVersion: '0.23'
-apis:
-  - aid: heartland-financial-usa:heartland-financial-usa-api
-    name: Heartland Financial USA API
-    tags:
-      - Banking
-      - Financial-Services
-    tags_raw:
-      - Banking
-      - Financial Services
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.htlf.com
-    humanURL: https://developer.htlf.com
-    properties:
-      - url: https://developer.htlf.com/docs
-        type: Documentation
-    description: >-
-      The Heartland Financial USA API provides access to platform services and data for enterprise integration and automation.
+apis: []
 common:
   - type: DomainSecurity
     url: security/heartland-financial-usa-domain-security.yml
-  - type: GitHubOrganization
-    url: https://github.com/htlfusa
   - type: LinkedIn
     url: https://www.linkedin.com/company/poweredbyhtlf
   - type: Website
-    url: https://www.htlf.com
+    url: https://www.umb.com
+  - type: Plans
+    url: plans/heartland-financial-usa-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/heartland-financial-usa-rate-limits.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-14'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    Heartland Financial USA ceased to exist when UMB Financial completed its acquisition on
+    2025-01-31 and finished converting every former HTLF divisional bank to the UMB brand and
+    platforms in October 2025; htlf.com now answers HTTP 400 to every path behind a
+    decommissioned Akamai configuration serving a certificate for a248.e.akamai.net, while
+    api.htlf.com and developer.htlf.com — the two hosts a 2026-04 bulk sweep had written into
+    this record — return NXDOMAIN and never existed.
+  evidence:
+    - url: https://www.htlf.com/
+      status: 400
+    - url: https://htlf.com/.well-known/security.txt
+      status: 400
+    - url: https://api.htlf.com/
+      status: 0
+    - url: https://developer.htlf.com/docs
+      status: 0
+    - url: https://github.com/htlfusa
+      status: 404
+    - url: https://www.umb.com/
+      status: 200
+  checked: '2026-09-14'

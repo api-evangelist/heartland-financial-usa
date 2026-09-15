@@ -4,35 +4,45 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Heartland Financial USA
 providerId: heartland-financial-usa
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-14'
+generated: '2026-09-14'
+method: searched
+reconciled: true
+source: >-
+  Searched every host this record knows for published rate limits, response headers or a
+  developer reference and found nothing served at all. Heartland Financial USA was acquired by
+  UMB Financial Corporation (closed 2025-01-31, brand and systems conversion completed October
+  2025); htlf.com answers HTTP 400 to every path from a decommissioned Akamai configuration and
+  api.htlf.com / developer.htlf.com do not resolve.
 tags:
   - Banking
   - Financial Services
   - Rate Limiting
-notes: Heartland Financial USA (HTLF) - now part of UMB Financial Corporation - does not publish a public
-  developer portal or rate-limit documentation. Limits, headers, and response codes are governed by the
-  bilateral partner agreement and are not publicly disclosed.
+  - Acquired
+  - Defunct
+limit_count: 0
+notes: >-
+  HONEST ZERO. There is no API, so there are no rate limits, no RateLimit-*/X-RateLimit-*
+  response headers and no documented exhaustion status code to record. A previous bulk-sweep
+  revision asserted a "Bilateral Partner Limit" tier; that tier was generated rather than
+  observed and has been removed — nothing HTLF published ever described a partner API program.
 sources:
-  - https://www.umb.com/
-  - https://www.htlf.com/ (redirects to umb.com)
-description: No public rate-limit documentation is available. Limits are enforced under bilateral partner
-  agreements; consumers should refer to their executed integration documents.
-limits:
-  - tier: partner
-    name: Bilateral Partner Limit
-    scope: contract
-    metric: varies
-    limit: 'see executed partner agreement'
-    applies:
-      - Heartland Financial USA API
-    notes: No publicly published numeric limit.
-policies:
-  - name: Bilateral Disclosure
-    description: All rate-limit and SLA terms are exchanged during partner onboarding under NDA.
+  - url: https://www.htlf.com/
+    status: 400
+  - url: https://htlf.com/robots.txt
+    status: 400
+  - url: https://api.htlf.com/
+    status: 0
+    note: NXDOMAIN
+  - url: https://developer.htlf.com/
+    status: 0
+    note: NXDOMAIN
+description: >-
+  No rate limits are published because no API is published. limit_count is 0 as an observed
+  absence, not as an undocumented-but-enforced limit.
+limits: []
+headers: []
+policies: []
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,0 +1,119 @@
+specification: API Evangelist Well-Known Probe
+specificationVersion: '0.1'
+provider: Heartland Financial USA
+providerId: heartland-financial-usa
+generated: '2026-09-14'
+method: probed
+source: >-
+  Live HTTPS probes of every host this record knows — the registrable domain htlf.com and
+  www.htlf.com, plus the two hosts the pre-existing apis.yml named (api.htlf.com,
+  developer.htlf.com). Heartland Financial USA (HTLF) was acquired by UMB Financial
+  Corporation (closed 2025-01-31) and the systems/brand conversion completed in October
+  2025; the htlf.com Akamai edge configuration has since been decommissioned and answers
+  HTTP 400 to every path, while api.htlf.com and developer.htlf.com do not resolve in DNS
+  at all. No .well-known document is served anywhere on this company's surface.
+notes: >-
+  RECORDED ABSENCE, NOT A PRESENCE. Every probe below missed, so no WellKnown or
+  SecurityTxt pointer is wired into apis.yml. The 400 responses are the Akamai edge
+  refusing the decommissioned htlf.com host header, not a per-path 404 — www.htlf.com
+  also presents a certificate for a248.e.akamai.net rather than for htlf.com, and
+  htlf.com DNS now CNAMEs to www.umb.com. UMB's own developer surface is tracked
+  separately under all/umb-financial/ and is NOT credited to this record.
+hosts:
+  - host: htlf.com
+    note: >-
+      Resolves (23.216.6.179 / .182 via Akamai) but the edge answers 400 to every request;
+      DNS CNAMEs to www.umb.com.
+    documents:
+      - path: /.well-known/security.txt
+        status: 400
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 400
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 400
+        file: null
+      - path: /.well-known/api-catalog
+        status: 400
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 400
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 400
+        file: null
+      - path: /.well-known/agent.json
+        status: 400
+        file: null
+  - host: www.htlf.com
+    note: >-
+      TLS certificate mismatch (serves a248.e.akamai.net); 400 on every path over both
+      HTTP and HTTPS.
+    documents:
+      - path: /.well-known/security.txt
+        status: 400
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 400
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 400
+        file: null
+      - path: /.well-known/api-catalog
+        status: 400
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 400
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 400
+        file: null
+      - path: /.well-known/agent.json
+        status: 400
+        file: null
+  - host: api.htlf.com
+    note: >-
+      NXDOMAIN — does not resolve. This host was a placeholder written by the 2026-04
+      bulk sweep, never a base URL the company published; it has been removed from apis.yml.
+    documents:
+      - path: /.well-known/security.txt
+        status: 0
+        file: null
+      - path: /.well-known/api-catalog
+        status: 0
+        file: null
+  - host: developer.htlf.com
+    note: >-
+      NXDOMAIN — does not resolve. Also a 2026-04 bulk-sweep placeholder, removed from apis.yml.
+    documents:
+      - path: /.well-known/security.txt
+        status: 0
+        file: null
+      - path: /.well-known/api-catalog
+        status: 0
+        file: null
+contract_discovery:
+  note: >-
+    STEP 0b contract discovery ran against every host above and missed everywhere. No
+    OpenAPI/Swagger, GraphQL, MCP, OGC or A2A surface exists to probe because no host of
+    this company serves anything.
+  probes:
+    - url: https://htlf.com/openapi.json
+      status: 400
+    - url: https://htlf.com/swagger.json
+      status: 400
+    - url: https://htlf.com/llms.txt
+      status: 400
+    - url: https://htlf.com/robots.txt
+      status: 400
+    - url: https://www.htlf.com/openapi.json
+      status: 400
+    - url: https://dev.htlf.com/
+      status: 301
+      note: >-
+        Redirects to www.dev.htlf.com, which does not resolve — a dangling Pantheon record,
+        not a developer portal.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

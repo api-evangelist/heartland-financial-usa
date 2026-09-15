@@ -14,6 +14,11 @@ created: '2026-05-04'
 # Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
 # bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
 method: generated
+modified_note: >-
+  2026-09-14 reconciliation — removed the fabricated api.htlf.com service reference. HTLF was
+  fully absorbed into UMB Financial (acquisition closed 2025-01-31, brand conversion completed
+  October 2025) and publishes no API, so there is no billing surface to align to FOCUS. This
+  file is retained as a historical stub and asserts no HTLF pricing.
 modified: '2026-05-05'
 reconciled: false
 tags:
@@ -84,14 +89,11 @@ meters:
     dimensions:
       - service
       - partner_id
-apis:
-  - name: Heartland Financial USA API
-    baseURL: https://api.htlf.com
-    tags:
-      - Banking
-      - Financial Services
-    serviceName: Heartland Financial USA API
-    serviceCategory: Banking / Financial Services
+apis: []
+# 2026-09-14: the former apis[] block named a "Heartland Financial USA API" at
+# https://api.htlf.com. That host returns NXDOMAIN and was a 2026-04 bulk-sweep placeholder,
+# never a base URL Heartland Financial USA published. It has been removed from apis.yml and
+# from this artifact rather than carried forward as a fabricated service.
 unitEconomics:
   - name: Cost per Transaction (per agreement)
     metric: partner_fees / transactions
