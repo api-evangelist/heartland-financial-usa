@@ -48,7 +48,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/heartland-financial-usa.png
 tags:
   - Banking
-  - Financial-Services
+  - Financial Services
   - Commercial Banking
   - Treasury Management
   - Acquired
@@ -64,6 +64,7 @@ tags_raw:
   - Defunct
   - Bank Holding Company
   - United States
+  - Financial-Services
 description: >-
   Heartland Financial USA, Inc. (HTLF) was a Denver, Colorado bank holding company — formerly
   headquartered in Dubuque, Iowa — that operated a multi-charter family of community banks across
