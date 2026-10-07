@@ -97,7 +97,6 @@ apis: []
 unitEconomics:
   - name: Cost per Transaction (per agreement)
     metric: partner_fees / transactions
-    target: TBD
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
