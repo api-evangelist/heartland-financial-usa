@@ -86,6 +86,8 @@ position: Consuming
 specificationVersion: '0.23'
 apis: []
 common:
+  - type: FinOps
+    url: finops/heartland-financial-usa-finops.yml
   - type: DomainSecurity
     url: security/heartland-financial-usa-domain-security.yml
   - type: LinkedIn
