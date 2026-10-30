@@ -1,4 +1,4 @@
-# Heartland Financial USA (heartland-financial-usa)
+# Heartland Financial USA
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,23 +64,62 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Heartland Financial USA is a major US corporation and Fortune 1000 company. The Heartland Financial USA API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+> **No longer operating.** This company or product has shut down, been discontinued, or been deprecated. This profile is kept as a historical record and is not maintained or rated.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/heartland-financial-usa/refs/heads/main/apis.yml)
+Heartland Financial USA, Inc. (HTLF) was a Denver, Colorado bank holding company — formerly headquartered in Dubuque, Iowa — that operated a multi-charter family of community banks across twelve states, including Dubuque Bank and Trust, Illinois Bank & Trust, Wisconsin Bank & Trust, New Mexico Bank & Trust, Arizona Bank & Trust, Rocky Mountain Bank, Citywide Banks, Minnesota Bank & Trust, Premier Valley Bank, First Bank & Trust, Bank of Blue Valley and Signature Bank of Arkansas. Its business was commercial and retail banking, treasury management, and wealth services delivered through branches and third-party core banking platforms rather than through a developer program. HTLF never published a developer portal, API reference, SDK, or machine-readable contract of any kind. UMB Financial Corporation completed its all-stock acquisition of HTLF on January 31, 2025 — the largest in UMB's history — and completed the systems and brand conversion of every former HTLF divisional bank in October 2025, at which point the HTLF brand ceased to exist. The htlf.com edge configuration has since been decommissioned. This profile is retained as a historical record; any banking API surface for these institutions now lives with UMB and is tracked separately under the UMB Bank profile.
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+**Areas:** Banking · Financial Services · Commercial Banking · Treasury Management · Acquired · Defunct · Bank-Holding-Company · United States
 
-## Tags:
+## Heartland Financial USA on APIs.io (historical record)
 
- - Banking, Financial Services
+Everything profiled for Heartland Financial USA is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/heartland-financial-usa/](https://apis.io/providers/heartland-financial-usa/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-04-19
-- **Modified:** 2026-04-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Maintainers
+#### Security (1)
 
-**FN:** Kin Lane
+Authentication, trust centre, and vulnerability disclosure.
 
-**Email:** kin@apievangelist.com
+- [Heartland Financial Usa Domain Security](https://apis.io/security/heartland-financial-usa/heartland-financial-usa-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Heartland Financial Usa Plans Pricing](https://apis.io/plans/heartland-financial-usa/heartland-financial-usa-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Heartland Financial Usa Rate Limits](https://apis.io/rate-limits/heartland-financial-usa/heartland-financial-usa-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Heartland Financial Usa Finops](https://apis.io/finops/heartland-financial-usa/heartland-financial-usa-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.umb.com)
+
+## API Evangelist rating
+
+**Not rated** — this company is recorded as no longer operating, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Heartland Financial USA: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/heartland-financial-usa/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
